@@ -53,36 +53,39 @@ export const KpiCard: React.FC<KpiCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`relative p-5 bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800/80 rounded-xl shadow-sm transition-all duration-200 ${schemeStyles.borderHover} ${
+      className={`relative p-4 sm:p-5 bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800/80 rounded-xl shadow-sm transition-all duration-200 flex flex-col justify-between ${schemeStyles.borderHover} ${
         onClick ? 'cursor-pointer hover:shadow-md' : ''
       }`}
     >
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+      <div>
+        {/* Top Title & Icon Row */}
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider truncate" title={title}>
             {title}
           </p>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold font-display tracking-tight text-slate-900 dark:text-white">
-              {value}
-            </span>
+          <div className={`p-2 rounded-xl border shadow-sm flex-shrink-0 ${schemeStyles.iconBg}`}>
+            <Icon className="w-4 h-4" />
           </div>
         </div>
-        <div className={`p-2.5 rounded-lg border ${schemeStyles.iconBg}`}>
-          <Icon className="w-5 h-5" />
+
+        {/* Big Value Number */}
+        <div className="mt-2">
+          <span className="text-2xl sm:text-3xl font-black font-display tracking-tight text-slate-900 dark:text-white">
+            {value}
+          </span>
         </div>
       </div>
 
       {(trend || subtext) && (
-        <div className="mt-3.5 flex items-center gap-2 pt-3 border-t border-slate-100 dark:border-navy-800/60 text-xs">
+        <div className="mt-3 flex flex-wrap items-center gap-2 pt-2.5 border-t border-slate-100 dark:border-navy-800/60 text-xs">
           {trend && (
             <span
-              className={`inline-flex items-center font-semibold gap-0.5 ${
+              className={`inline-flex items-center font-bold gap-1 ${
                 trendType === 'positive'
-                  ? 'text-emerald-600 dark:text-emerald-400'
+                  ? 'text-emerald-700 dark:text-emerald-400'
                   : trendType === 'negative'
-                  ? 'text-red-600 dark:text-red-400'
-                  : 'text-slate-500 dark:text-slate-400'
+                  ? 'text-red-700 dark:text-red-400'
+                  : 'text-slate-700 dark:text-slate-300'
               }`}
             >
               {trendType === 'positive' ? (
@@ -93,7 +96,7 @@ export const KpiCard: React.FC<KpiCardProps> = ({
               {trend}
             </span>
           )}
-          {subtext && <span className="text-slate-500 dark:text-slate-400">{subtext}</span>}
+          {subtext && <span className="text-slate-600 dark:text-slate-300 font-medium truncate">{subtext}</span>}
         </div>
       )}
     </div>

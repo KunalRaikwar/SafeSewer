@@ -11,8 +11,16 @@
     --offline: 100 116 139;
   }
 
+  html {
+    font-size: 17.5px;
+  }
+
   body {
-    @apply transition-colors duration-200;
+    @apply transition-colors duration-200 text-slate-900 dark:text-slate-100 font-sans;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.55;
   }
 }
 

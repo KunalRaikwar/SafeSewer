@@ -84,7 +84,7 @@ export const Topbar: React.FC<TopbarProps> = ({ onMenuClick }) => {
   };
 
   return (
-    <header className="sticky top-0 z-30 h-16 bg-white dark:bg-navy-900 border-b border-slate-200 dark:border-navy-800 px-4 sm:px-6 flex items-center justify-between gap-4 transition-colors">
+    <header className="sticky top-0 z-40 h-16 bg-white/95 dark:bg-navy-900/95 backdrop-blur-md border-b border-slate-200 dark:border-navy-800 px-4 sm:px-6 flex items-center justify-between gap-4 transition-colors">
       {/* Left side: Hamburger + Page Title */}
       <div className="flex items-center gap-3">
         <button

@@ -103,32 +103,39 @@ export const SensorCard: React.FC<SensorCardProps> = ({
   }
 
   return (
-    <div className={`p-4 bg-white dark:bg-navy-900 border rounded-xl shadow-sm transition-all duration-200 ${borderColor}`}>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className={`p-2 rounded-lg bg-slate-50 dark:bg-navy-800/80 ${configs.color}`}>
+    <div className={`p-4 bg-white dark:bg-navy-900 border rounded-xl shadow-sm transition-all duration-200 flex flex-col justify-between ${borderColor}`}>
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-2.5">
+          <div className={`p-2 rounded-lg bg-slate-50 dark:bg-navy-800/80 ${configs.color} flex-shrink-0 shadow-sm`}>
             <Icon className="w-4 h-4" />
           </div>
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-              {configs.label}
-            </h4>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">{subtitle || configs.sub}</p>
-          </div>
+          <StatusBadge status={status} size="sm" pulse={status === 'critical'} />
         </div>
-        <StatusBadge status={status} size="sm" pulse={status === 'critical'} />
+
+        <div className="min-w-0">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 truncate" title={configs.label}>
+            {configs.label}
+          </h4>
+          <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">{subtitle || configs.sub}</p>
+        </div>
       </div>
 
-      <div className="mt-3.5 flex items-baseline justify-between">
+      {/* Value and Unit */}
+      <div className="mt-3">
         <div className="flex items-baseline gap-1">
-          <span className="text-2xl font-bold font-display tracking-tight text-slate-900 dark:text-white">
+          <span className="text-lg sm:text-xl font-bold font-display tracking-tight text-slate-900 dark:text-white truncate">
             {value}
           </span>
-          {unit && <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">{unit}</span>}
+          {unit && <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">{unit}</span>}
         </div>
-        <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
-          Limit: {threshold || configs.safeRange}
-        </span>
+
+        {/* Limit Subtitle Row */}
+        <div className="mt-1 flex items-center justify-between text-[10.5px] text-slate-500 dark:text-slate-400">
+          <span>Limit</span>
+          <span className="font-semibold text-slate-700 dark:text-slate-300 font-mono">
+            {threshold || configs.safeRange}
+          </span>
+        </div>
       </div>
 
       {/* Visual threshold progress bar for gases */}

@@ -304,7 +304,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
       {/* Floating Info Popup when a marker is clicked */}
       {activePopupJob && (
-        <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-96 z-30 bg-slate-950/95 backdrop-blur-lg border border-slate-700/80 rounded-xl p-4 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-200">
+        <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-96 z-10 bg-slate-950/95 backdrop-blur-lg border border-slate-700/80 rounded-xl p-4 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
               <div className="flex items-center gap-2">

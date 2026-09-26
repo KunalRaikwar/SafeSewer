@@ -42,7 +42,7 @@ export const Drawer: React.FC<DrawerProps> = ({
   }[width];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-[60] overflow-hidden">
       <div
         className="fixed inset-0 bg-navy-950/60 backdrop-blur-sm transition-opacity animate-in fade-in duration-200"
         onClick={onClose}
